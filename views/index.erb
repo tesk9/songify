@@ -4,15 +4,24 @@
   <title>Songify</title>
 </head>
 <body>
-  <%= @message %>
+  <header><h1>SONGIFY</h1></header>
   <div>
-    <ul>
-      <% @remarks.each do |remark| %>
-        <li> 
-          <%= remark %>
-        </li>
+    <!-- <ul> -->
+      <% @albums.each do |album| %>
+        <!-- <li> -->
+          <div>
+            album
+            <span><%= album[1] %></span>
+            <span><%= album[2] %></span>
+          </div>
+        <!-- </li> -->
       <% end %>
-    </ul>
+    <!-- </ul> -->
   </div>
+  <form action="/" method="post">
+    <input type="text" required placeholder="New Album Name" name="new-album">
+    <input type="text" required placeholder="About" name="about-new-album">
+    <input type="submit">
+  </form>
 </body>
 </html>
