@@ -31,7 +31,7 @@ module Songify::Repo
     def get_by_id(id)
       command = <<-SQL
       SELECT * FROM albums
-      WHERE id=id;
+      WHERE id='#{id}';
       SQL
       results = @db.exec(command)
       results.values

@@ -6,19 +6,8 @@
 </head>
 <body>
   <div class="header"><h1>SONGIFY</h1></div>
-  <form action="/" method="post">
-    <input type="text" required placeholder="New Album Name" name="new-album">
-    <input type="text" required placeholder="About" name="about-new-album">
-    <input type="submit">
-  </form>
-  <br>
-  <div>
-      <% @albums.each do |album| %>
-        <a href = "/albums/<%= album[0] %>"><div>
-          <span><%= album[1] %> | </span>
-          <span><%= album[2] %> </span>
-        </div></a>
-      <% end %>
-  </div>
+
+  <%= yield %>
+
 </body>
 </html>

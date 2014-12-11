@@ -15,7 +15,7 @@ set :bind, '0.0.0.0' # This is needed for Vagrant
 
 get '/' do
   @albums = album_repo.get_all
-  erb :index
+  erb :albums, :layout => :index
 end
 
 post '/' do
@@ -25,6 +25,6 @@ post '/' do
 end
 
 get '/albums/:id' do
-  @albums = album_repo.get_by_id([:id])
-  erb :index
+  @album = album_repo.get_by_id(params[:id])
+  erb :one_album, :layout => :index
 end
