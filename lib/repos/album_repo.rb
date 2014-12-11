@@ -15,7 +15,7 @@ module Songify::Repo
 
     def drop_table
       command = <<-SQL
-      DROP TABLE IF EXISTS albums;
+      DROP TABLE IF EXISTS albums CASCADE;
       SQL
       @db.exec(command)
     end
@@ -40,7 +40,7 @@ module Songify::Repo
     def add(album)
       command = <<-SQL
       INSERT INTO albums (name, about)
-      VALUES ('#{album.name}', '#{album.about}')
+      VALUES ('#{album.name}', '#{album.about}');
       SQL
       @db.exec(command)
     end

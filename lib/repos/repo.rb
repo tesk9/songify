@@ -8,3 +8,4 @@ module Songify::Repo
 end
 
 require_relative "album_repo.rb"
+require_relative "song_repo.rb"

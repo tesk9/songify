@@ -5,11 +5,9 @@ require "sinatra/reloader" if development?
 require_relative 'songify.rb'
 
 album_repo = Songify::Repo::AlbumRepo.new
-album_repo.create_table
-# new_album = Songify::Album.new("Test Album", "TEST")
-# album_repo.add(new_album)
-# new_album = Songify::Album.new("Test Album2", "TEST")
-# album_repo.add(new_album)
+song_repo = Songify::Repo::SongRepo.new
+# song_repo.create_table
+# album_repo.create_table
 
 set :bind, '0.0.0.0' # This is needed for Vagrant
 
@@ -26,5 +24,12 @@ end
 
 get '/albums/:id' do
   @album = album_repo.get_by_id(params[:id])
+  @songs = song_repo.get_all(params[:id])
   erb :one_album, :layout => :index
+end
+
+post '/albums/:id' do
+  new_song = Songify::Song.new(params["song-name"], params["youtube-link"], params[:id])
+  song_repo.add(new_song)
+  redirect to('/')
 end

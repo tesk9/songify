@@ -6,9 +6,9 @@
   <br>
   <div>
       <% @albums.each do |album| %>
-        <a href = "/albums/<%= album[0] %>"><div>
+        <div><a href = "/albums/<%= album[0] %>">
           <span><%= album[1] %> | </span>
           <span><%= album[2] %> </span>
-        </div></a>
+        </a></div>
       <% end %>
   </div>

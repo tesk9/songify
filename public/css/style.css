@@ -3,6 +3,11 @@ body {
   font-family: Lucida Blackletter;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .header {
   background-color: #031634;
   border: 4px solid #033649;
