@@ -1,0 +1,22 @@
+body {
+  background-color: #CDB380;
+  font-family: Lucida Blackletter;
+}
+
+.header {
+  background-color: #031634;
+  border: 4px solid #033649;
+  width: 100%;
+  margin-top: -2px;
+
+}
+
+h1 {
+  margin: auto;
+  color: #036564;
+}
+
+input {
+  background-color: #E8DDCB;
+  color: #036564;
+}
