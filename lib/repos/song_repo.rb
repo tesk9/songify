@@ -31,6 +31,16 @@ module Songify::Repo
       results.values
     end
 
+    def update(song_id, song)
+      command = <<-SQL
+      UPDATE songs
+      SET name='#{song.name}',
+        link = '#{song.link}'
+      WHERE id='#{song_id}';
+      SQL
+      @db.exec(command)
+    end
+
     def drop_table
       command = <<-SQL
       DROP TABLE IF EXISTS songs;

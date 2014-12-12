@@ -11,18 +11,21 @@
   </form>
 </div>
 
+<hr>
+
 <div>
   <ol>
     <% @songs.each do |song| %>
       <li><a href = "<%= song[2] %>">
-        <span><%= song[1] %></span>
-<!--         <form action="/edit/song/<%#= song[0] %>" method="get">
-          <button type="button">edit</button>
-        </form> -->
-      </a></li>
+        <span><%= song[1] %></span></a>
+        <button class="edit-song" data-albid="<%= @album[0][0] %>" data-id="<%= song[0] %>" data-name="<%= song[1] %>" data-link="<%= song[2] %>">Edit</button>
+        <span class="make-edit"></span>
+      </li>
     <% end %>
   </ol>
 </div>
+
+<hr>
 
 <form action="/albums/<%= @album[0][0] %>" method="post">
   <input type="text" required placeholder="Song Name" name="song-name">

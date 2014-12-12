@@ -43,5 +43,10 @@ post '/albums/edit/:id' do
   updated = Songify::Album.new(params["album"], params["about"], params["cover"], params["genre"], params["year"])
   album_repo.update(params[:id], updated)
   redirect to("/albums/#{params[:id]}")
-  # redirect to("/")
+end
+
+post '/albums/:id/songs/edit/:song_id' do
+  updated = Songify::Song.new(params["name"], params["link"], params[:id])
+  song_repo.update(params[:song_id], updated)
+  redirect to("/albums/#{params[:id]}")
 end

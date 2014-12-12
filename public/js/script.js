@@ -1,5 +1,10 @@
-// $(document).ready(function () {
-//   $(".edit-album").on("click", function () {
-//     $(".make-edit").append("<form action='/edit' method='post'><input type='text' required name='new-album' value="++"><input type='text' required name='about-new-album'><input type='text' name='cover'><input type='text' name='genre'><input type='text' name='year'><input type='submit'></form>")
-//   });
-// });
+$(document).ready(function () {
+  $(".edit-song").on("click", function () {
+    $alb_id = $(this).data("albid")
+    var $id = $(this).data("id")
+    var $name = $(this).data("name")
+    var $link = $(this).data("link")
+    $(this).siblings(".make-edit").append("<form action='/albums/"+$alb_id+"/songs/edit/"+$id+"' method='post'><input type='text' name='name' value='"+$name+"'><input type='link' value='"+$link+"'><input type='submit'></form>")
+    $(this).remove()
+  });
+});
