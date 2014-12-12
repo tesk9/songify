@@ -49,6 +49,14 @@ module Songify::Repo
       @db.exec(command)
     end
 
+    def delete_by_album(album_id)
+      command = <<-SQL
+      DELETE FROM songs
+      WHERE album_id='#{album_id}';
+      SQL
+      @db.exec(command)
+    end
+
     def drop_table
       command = <<-SQL
       DROP TABLE IF EXISTS songs;

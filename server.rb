@@ -45,6 +45,17 @@ post '/albums/edit/:id' do
   redirect to("/albums/#{params[:id]}")
 end
 
+get '/albums/:id/delete' do
+  song_repo.delete_by_album(params[:id])
+  album_repo.delete_by_id(params[:id])
+  redirect to("/")
+end
+
+get '/albums/:id/songs/delete' do
+  song_repo.delete_by_album(params[:id])
+  redirect to("/albums/#{params[:id]}")
+end
+
 post '/albums/:id/songs/edit/:song_id' do
   updated = Songify::Song.new(params["name"], params["link"], params[:id])
   song_repo.update(params[:song_id], updated)

@@ -40,6 +40,14 @@ module Songify::Repo
       results.values
     end
 
+    def delete_by_id(id)
+      command = <<-SQL
+      DELETE FROM albums
+      WHERE id='#{id}';
+      SQL
+      @db.exec(command)
+    end
+
     def add(album)
       command = <<-SQL
       INSERT INTO albums (name, about, cover, genre, year)

@@ -13,7 +13,6 @@ $(document).ready(function () {
     $(this).hide()
   
     $(".no-delete").on("click", function () {
-      console.log("Clicked!")
       var $path = $(this).parent().parent()
       $path.find(".delete-song").show();
       $path.find(".make-edit").find("form").remove();
@@ -21,4 +20,13 @@ $(document).ready(function () {
     });
   });
 
+  $(".clear-songs").on("click", function () {
+    var $alb_id = $(this).data("id");
+    window.location.replace($alb_id + "/songs/delete");
+  });
+
+  $(".delete-album").on("click", function () {
+    var $alb_id = $(this).data("id");
+    window.location.replace($alb_id + "/delete")
+  });
 });
