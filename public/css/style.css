@@ -24,4 +24,11 @@ h1 {
 input {
   background-color: #E8DDCB;
   color: #036564;
+  font-family: Lucida Blackletter;
+}
+
+button {
+  background-color: #E8DDCB;
+  color: #036564;
+  font-family: Lucida Blackletter;
 }

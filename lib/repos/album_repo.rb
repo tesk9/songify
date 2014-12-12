@@ -47,5 +47,9 @@ module Songify::Repo
       SQL
       @db.exec(command)
     end
+
+    def update(album_id)
+      
+    end
   end
 end
