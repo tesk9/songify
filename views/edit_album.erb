@@ -1,12 +1,12 @@
 <img src="<%= @album[0][3] %>">
 
-<form action="albums/edit" method="put">
+<form action="/albums/edit/<%= @album[0][0] %>" method="post">
   <label for="name">Album Name:
-    <input type="text" required id="name" name="new-album" value="<%= @album[0][1] %>">
+    <input type="text" required id="name" name="album" value="<%= @album[0][1] %>">
   </label>
   <br>
   <label for="about">About:
-    <input type="text" required id="about" name="about-new-album" value="<%= @album[0][2] %>">
+    <input type="text" required id="about" name="about" value="<%= @album[0][2] %>">
   </label>
   <br>
   <label for="cover">Cover Art Link:
@@ -21,5 +21,9 @@
     <input type="text" name="year" id="year" value="<%= @album[0][5] %>">
   </label>
   <br>
+  <input type="submit" value="Update">
+</form>
+
+<form action="/" method="put">
   <input type="submit">
 </form>

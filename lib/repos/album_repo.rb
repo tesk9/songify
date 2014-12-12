@@ -48,8 +48,17 @@ module Songify::Repo
       @db.exec(command)
     end
 
-    def update(album_id)
-      
+    def update(album_id, album)
+      command = <<-SQL
+      UPDATE albums
+      SET name='#{album.name}',
+        about='#{album.about}',
+        cover='#{album.cover}',
+        genre='#{album.genre}',
+        year='#{album.year}'
+      WHERE id='#{album_id}';
+      SQL
+      @db.exec(command)
     end
   end
 end
