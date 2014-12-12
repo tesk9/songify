@@ -3,15 +3,18 @@
 
 <div>
   <span><%= @album[0][1] %> | </span>
-  <span><%= @album[0][2] %></span>
+  <span><%= @album[0][2] %> | </span>
+  <span><%= @album[0][5] %></span>
 </div>
 
 <div>
-  <% @songs.each do |song| %>
-    <div><a href = "<%= song[2] %>">
-      <span><%= song[1] %></span>
-    </a></div>
-  <% end %>
+  <ol>
+    <% @songs.each do |song| %>
+      <li><a href = "<%= song[2] %>">
+        <span><%= song[1] %></span>
+      </a></li>
+    <% end %>
+  </ol>
 </div>
 
 <form action="/albums/<%= @album[0][0] %>" method="post">

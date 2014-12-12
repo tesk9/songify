@@ -17,7 +17,7 @@ get '/' do
 end
 
 post '/' do
-  new_album = Songify::Album.new(params["new-album"], params["about-new-album"], params["cover"])
+  new_album = Songify::Album.new(params["new-album"], params["about-new-album"], params["cover"], params["genre"], params["year"])
   album_repo.add(new_album)
   redirect to('/')
 end

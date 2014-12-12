@@ -8,7 +8,9 @@ module Songify::Repo
         id SERIAL PRIMARY KEY,
         name text,
         about text,
-        cover text
+        cover text,
+        genre integer,
+        year integer
         );
       SQL
       @db.exec(command)
@@ -40,8 +42,8 @@ module Songify::Repo
 
     def add(album)
       command = <<-SQL
-      INSERT INTO albums (name, about, cover)
-      VALUES ('#{album.name}', '#{album.about}', '#{album.cover}');
+      INSERT INTO albums (name, about, cover, genre, year)
+      VALUES ('#{album.name}', '#{album.about}', '#{album.cover}', '#{album.genre}', '#{album.year}');
       SQL
       @db.exec(command)
     end
