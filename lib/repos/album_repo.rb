@@ -9,7 +9,7 @@ module Songify::Repo
         name text,
         about text,
         cover text,
-        genre integer,
+        genre text,
         year integer
         );
       SQL
