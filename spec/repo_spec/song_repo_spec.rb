@@ -13,4 +13,16 @@ describe Songify::Repo::SongRepo do
       expect(@song_repo.get_all(1)[0][1]).to eq("Song Name")
     end
   end
+
+  describe "#update" do
+    it "updates values for one song" do
+      new_song = Songify::Song.new("Bad Name", "Bad Link", 1)
+      @song_repo.add(new_song)
+      updated = Songify::Song.new("Better Name", "Working Link", 1)
+      @song_repo.update(1, updated)
+      song = @song_repo.get_all(1)[0]
+      expect(song[1]).to eq("Better Name")
+      expect(song[2]).to eq("Working Link")
+    end
+  end
 end
