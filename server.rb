@@ -7,7 +7,7 @@ require_relative 'songify.rb'
 album_repo = Songify::Repo::AlbumRepo.new
 song_repo = Songify::Repo::SongRepo.new
 # song_repo.create_table
-# album_repo.create_table
+album_repo.create_table
 
 set :bind, '0.0.0.0' # This is needed for Vagrant
 
@@ -17,7 +17,7 @@ get '/' do
 end
 
 post '/' do
-  new_album = Songify::Album.new(params["new-album"], params["about-new-album"])
+  new_album = Songify::Album.new(params["new-album"], params["about-new-album"], params["cover"])
   album_repo.add(new_album)
   redirect to('/')
 end
