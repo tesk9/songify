@@ -17,15 +17,7 @@ get '/' do
 end
 
 post '/' do
-  genre = params["genre"].downcase.capitalize
-
-  if params["year"] != ""
-    year = params["year"]
-  else
-    year = 0
-  end
-
-  new_album = Songify::Album.new(params["new-album"], params["about-new-album"], params["cover"], genre, year)
+  new_album = Songify::Album.new(params["new-album"], params["about-new-album"], params["cover"], params["genre"], params["year"])
   album_repo.add(new_album)
   redirect to('/')
 end
@@ -48,16 +40,8 @@ get '/albums/edit/:id' do
 end
 
 post '/albums/edit/:id' do
-  genre = params["genre"].downcase.capitalize
-
-  if params["year"] != ""
-    year = params["year"]
-  else
-    year = 0
-  end
-
-  updated = Songify::Album.new(params["album"], params["about"], params["cover"], genre, year)
+  updated = Songify::Album.new(params["album"], params["about"], params["cover"], params["genre"], params["year"])
   album_repo.update(params[:id], updated)
-  # redirect to("/albums/#{params[:id]}")
-  redirect to("/")
+  redirect to("/albums/#{params[:id]}")
+  # redirect to("/")
 end
