@@ -6,7 +6,9 @@
   <span><%= @album[0][2] %> | </span>
   <span><%= @album[0][4] %> | </span>
   <span><%= @album[0][5] %></span>
-  <form action="/edit/<%= @album[0][0] %>" method="put"><button type="button" class="edit-album">edit</button></form>
+  <form action="/edit/albums/<%= @album[0][0] %>" method="get">
+    <button type="submit">edit</button>
+  </form>
 </div>
 
 <div>
@@ -14,7 +16,9 @@
     <% @songs.each do |song| %>
       <li><a href = "<%= song[2] %>">
         <span><%= song[1] %></span>
-        <button type="button" class="edit-song">edit</button>
+<!--         <form action="/edit/song/<%#= song[0] %>" method="get">
+          <button type="button">edit</button>
+        </form> -->
       </a></li>
     <% end %>
   </ol>

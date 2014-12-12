@@ -1,8 +1,25 @@
-  <form action="/edit" method="put">
-    <input type="text" required name="new-album" value="<%= @album[0][1] %>">
-    <input type="text" required name="about-new-album" value="<%= @album[0][2] %>">
-    <input type="text" name="cover" value="<%= @album[0][3] %>">
-    <input type="text" name="genre" value="<%= @album[0][4] %>">
-    <input type="text" name="year" value="<%= @album[0][5] %>">
-    <input type="submit">
-  </form>
+<img src="<%= @album[0][3] %>">
+
+<form action="albums/edit" method="put">
+  <label for="name">Album Name:
+    <input type="text" required id="name" name="new-album" value="<%= @album[0][1] %>">
+  </label>
+  <br>
+  <label for="about">About:
+    <input type="text" required id="about" name="about-new-album" value="<%= @album[0][2] %>">
+  </label>
+  <br>
+  <label for="cover">Cover Art Link:
+    <input type="text" name="cover" id="cover" value="<%= @album[0][3] %>">
+  </label>
+  <br>
+  <label for="genre">Genre:
+    <input type="text" name="genre" id="genre" value="<%= @album[0][4] %>">
+  </label>
+  <br>
+  <label for="year">Release Year:
+    <input type="text" name="year" id="year" value="<%= @album[0][5] %>">
+  </label>
+  <br>
+  <input type="submit">
+</form>

@@ -39,11 +39,10 @@ end
 post '/albums/:id' do
   new_song = Songify::Song.new(params["song-name"], params["youtube-link"], params[:id])
   song_repo.add(new_song)
-  # redirect to('/')
   redirect to("/albums/#{params[:id]}")
 end
 
-get '/edit/:id' do
+get '/edit/albums/:id' do
   @album = album_repo.get_by_id(params[:id])
   erb :edit_album, :layout => :index
 end
