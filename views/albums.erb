@@ -7,6 +7,20 @@
     <input type="submit">
   </form>
   <br>
+
+  <hr>
+
+  <form action="genre" method="get">
+    <label for="genre-picker">
+      Search for an album by genre:
+      <input type="text" id="genre-picker" name="genre">
+    </label>
+  </form>
+
+  <hr>
+
+  <div><h2><%= @message %></h2></div>
+
   <div>
       <% @albums.each do |album| %>
         <div><a href = "/albums/<%= album[0] %>">

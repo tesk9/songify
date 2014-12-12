@@ -13,13 +13,21 @@ set :bind, '0.0.0.0' # This is needed for Vagrant
 
 get '/' do
   @albums = album_repo.get_all
+  @message = (@albums != []) ?  "Your Albums:" : ""
   erb :albums, :layout => :index
 end
 
 post '/' do
-  new_album = Songify::Album.new(params["new-album"], params["about-new-album"], params["cover"], params["genre"], params["year"])
+  new_album = Songify::Album.new(params["new-album"], params["about-new-album"], params["cover"], params["genre"], params["year"].to_i)
   album_repo.add(new_album)
   redirect to('/')
+end
+
+get '/genre' do
+  genre = params["genre"].downcase.capitalize
+  @albums = album_repo.get_by_genre(genre)
+  @message = (@albums != []) ?  "Filtering by Genre for #{genre}:" : ""
+  erb :albums, :layout => :index
 end
 
 get '/albums/:id' do

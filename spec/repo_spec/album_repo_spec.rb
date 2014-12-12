@@ -47,4 +47,12 @@ describe Songify::Repo::AlbumRepo do
       expect(alb[0][5]).to eq("1975")
     end
   end
+
+  describe("#get_by_genre") do
+    it "retrieves albums matching given genre" do
+      new_album = Songify::Album.new("Born to Run", "by Bruce Springsteen", "http://assets.rollingstone.com/assets/images/list/1ccdff7c10d78ca236e7272be46db2562737945a.JPG", "rock", 1975)
+      @album_repo.add(new_album)
+      expect(@album_repo.get_by_genre("Rock")[0][1]).to eq("Born to Run")
+    end
+  end
 end

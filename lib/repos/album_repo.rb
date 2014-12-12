@@ -40,6 +40,15 @@ module Songify::Repo
       results.values
     end
 
+    def get_by_genre(genre)
+      command = <<-SQL
+      SELECT * FROM albums
+      WHERE genre='#{genre}';
+      SQL
+      results = @db.exec(command)
+      results.values
+    end
+
     def delete_by_id(id)
       command = <<-SQL
       DELETE FROM albums
