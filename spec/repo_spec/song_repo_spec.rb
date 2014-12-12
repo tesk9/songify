@@ -25,4 +25,13 @@ describe Songify::Repo::SongRepo do
       expect(song[2]).to eq("Working Link")
     end
   end
+
+  describe "#delete" do
+    it "removes matching row from songs table" do
+      new_song = Songify::Song.new("Bad Song", "Link", 1)
+      @song_repo.add(new_song)
+      @song_repo.delete(1)
+      expect(@song_repo.get_all(1)).to eq([])
+    end
+  end
 end

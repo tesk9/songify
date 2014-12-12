@@ -19,6 +19,7 @@
       <li><a href = "<%= song[2] %>">
         <span><%= song[1] %></span></a>
         <button class="edit-song" data-albid="<%= @album[0][0] %>" data-id="<%= song[0] %>" data-name="<%= song[1] %>" data-link="<%= song[2] %>">Edit</button>
+        <button class="delete-song" data-albid="<%= @album[0][0] %>" data-id="<%= song[0] %>">Delete</button>
         <span class="make-edit"></span>
       </li>
     <% end %>

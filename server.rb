@@ -50,3 +50,8 @@ post '/albums/:id/songs/edit/:song_id' do
   song_repo.update(params[:song_id], updated)
   redirect to("/albums/#{params[:id]}")
 end
+
+post '/albums/:id/songs/delete/:song_id' do
+  song_repo.delete(params[:song_id])
+  redirect to("/albums/#{params[:id]}")
+end
